@@ -1,0 +1,49 @@
+<%- include('../layouts/main') %>
+<h1><%= post.post_title %></h1>
+<div class="d-flex align-items-center mb-3">
+  <img
+    src="<%= post.profile_picture %>"
+    alt="Profile Picture"
+    class="rounded-circle mr-3"
+    style="width: 50px; height: 50px"
+  />
+  <div>
+    <h5 class="mb-0"><%= post.username %></h5>
+    <small class="text-muted"><%= post.nickname %></small>
+  </div>
+</div>
+<p><%= post.post_content %></p>
+<% if (post.images) { %>
+<div class="row">
+  <% post.images.split(',').forEach(image => { %>
+  <div class="col-md-4 mb-3">
+    <img src="<%= image %>" alt="Post Image" class="img-fluid" />
+  </div>
+  <% }) %>
+</div>
+<% } %>
+<hr />
+<h4>Comments</h4>
+<% if (comments.length === 0) { %>
+<p>No comments yet.</p>
+<% } else { %>
+<div class="list-group">
+  <% comments.forEach(comment => { %>
+  <div class="list-group-item">
+    <div class="d-flex align-items-center">
+      <img
+        src="<%= comment.profile_picture %>"
+        alt="Profile Picture"
+        class="rounded-circle mr-3"
+        style="width: 30px; height: 30px"
+      />
+      <div>
+        <h6 class="mb-0"><%= comment.username %> (<%= comment.nickname %>)</h6>
+        <small class="text-muted"><%= comment.created_at %></small>
+      </div>
+    </div>
+    <p class="mt-2 mb-0"><%= comment.comment_content %></p>
+  </div>
+  <% }) %>
+</div>
+<% } %>

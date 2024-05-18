@@ -1,0 +1,25 @@
+<%- include('../layouts/main') %>
+<h1>Create Post</h1>
+<form action="/post" method="POST">
+  <div class="form-group">
+    <label for="member_id">Member ID</label>
+    <input type="text" class="form-control" id="member_id" name="member_id" required>
+  </div>
+  <div class="form-group">
+    <label for="theme_id">Theme ID</label>
+    <input type="text" class="form-control" id="theme_id" name="theme_id" required>
+  </div>
+  <div class="form-group">
+    <label for="post_title">Post Title</label>
+    <input type="text" class="form-control" id="post_title" name="post_title" required>
+  </div>
+  <div class="form-group">
+    <label for="post_content">Post Content</label>
+    <textarea class="form-control" id="post_content" name="post_content" rows="5" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="hashtags">Hashtags</label>
+    <input type="text" class="form-control" id="hashtags" name="hashtags">
+  </div>
+  <button type="submit" class="btn btn-primary">Create Post</button>
+</form>
